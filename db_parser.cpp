@@ -183,6 +183,7 @@ UserSectionParser::UserSectionParser()
 {
     numRead_ = 0;
 }
+
 bool UserSectionParser::parse(
     std::istream& is,
     DataStore& ds,

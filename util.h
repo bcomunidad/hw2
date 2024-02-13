@@ -2,31 +2,38 @@
 #define UTIL_H
 
 #include <string>
-#include <iostream>
 #include <set>
-
 
 /** Complete the setIntersection and setUnion functions below
  *  in this header file (since they are templates).
  *  Both functions should run in time O(n*log(n)) and not O(n^2)
  */
 template <typename T>
-std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)
+std::set<T> setIntersection(std::set<T>& s1, std::set<T>& s2)       // AND
 {
-
-
-
-
-
+    std::set<T> words;
+    // for each item in s1, check if it's in s2
+    typename std::set<T>::iterator it = s1.begin();
+    for(it; it != s1.end(); ++it) {
+        if(s2.find(*it) != s2.end()) {     // item is found in s2
+            std::cout << "word inserted in set is " << *it << std::endl;
+            words.insert(*it);      // if found, add to words
+        }
+    }
+    return words;
 }
+
 template <typename T>
-std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)
+std::set<T> setUnion(std::set<T>& s1, std::set<T>& s2)      // OR
 {
-
-
-
-
-
+    std::set<T> words;
+    // for every element in s1, add to s2 and return s2
+    typename std::set<T>::iterator it = s1.begin();
+    for(it; it != s1.end(); ++it) {
+        std::cout << "word inserted in set is " << *it << std::endl;
+        s2.insert(*it);
+    }
+    return s2;
 }
 
 /***********************************************/
